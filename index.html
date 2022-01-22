@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+
+<body class="myBody">
+    <div class="progress">
+        <div class="progress-fill" id="fill-progress"></div>
+        <span class="progress-text" id="text-progress">0%</span>
+    </div>
+    <div class="alert hide" id="table-notification">
+        <span class="circle"></span>
+        <span class="msg">client added Succesfully</span>
+    </div>
+    <div class="ntotification-edit" id="update-notification">
+        <span class="update"></span>
+        <span class="msg-update">client updated succesfully</span>
+    </div>
+
+    <form class="form">
+        <img id="iconeUser" class="icon-user" src="customer.image.png">
+        <div>
+            <input id="name" class="client-name input" type="text" placeholder="Name" required>
+            <div id="name-erreur" class="erreur-name error"></div>
+        </div>
+        <div>
+            <input id="number" class="client-id input" type="texts" placeholder="Number" required>
+            <div id="number-erreur" class="erreur-number error"></div>
+        </div>
+        <div>
+            <textarea id="description" class="client-description input" type="text" placeholder="Description" required></textarea>
+            <div id="description-erreur" class="erreur-description error"></div>
+        </div>
+        <div>
+            <select class="currency-select input" id="currency-client">
+                <option class = "select-currency" id =" " value = "" >Currency</option>
+                <option value= "EUR" >EUR</option>
+                <option value="INR"  > INR</option>
+                <option value="USD" >USD</option>
+           </select>
+            <div id="currency-erreur" class="erreur-currency error"></div>
+        </div>
+        <div>
+            <input id="rate" class="client-rate input" type="text" placeholder="Rate" required>
+            <div id="rate-erreur" class="erreur-rate error"></div>
+        </div>
+        <div>
+            <input id="balance" class="client-balance input" type="text" placeholder="Balance" required>
+            <div id="balance-erreur" class="erreur-balance error"></div>
+        </div>
+        <div>
+            <input id="deposit" class="client-deposit input" type="text" placeholder="Deposit" required>
+            <div id="deposit-erreur" class="erreur-deposit error"></div>
+        </div>
+        <div>
+            <select class="status-select input" id="client-status">
+                <option value="" id = "select-status" >Status</option>
+                <option value = "active"> active</option>
+                <option value = "inactive"> inactive</option>
+            </select>
+            <div id="status-erreur" class="erreur-status error "></div>
+        </div>
+    </form>
+
+    <hr class="rounded">
+
+    <header>
+        </div>
+        <div class="rectangle-1">
+            <div class="rectangle-search">
+                <input id="searchBar" class="search" type="text" placeholder="Search"><i class="fa fa-search" aria-hidden="true"></i>
+                <img id="iconeVector" class="icon-Vector" src="vectore.image.png">
+                <img id="iconePrint" class="icon-print" src="icons8-print-50.png">
+                <img id="icone-Delete" class="icon-Delete" src="delete-user.png">
+
+
+                <div class="rectangle-sort" id="sorting-rectangle">
+                    <p id="sortbyname">Sort by Name:</p>
+
+                    <div>
+                        <input type="radio" name="sortname" id="default">
+                        <label>default</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="sortname" id="ascending">
+                        <label>ascending</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="sortname" id="descending">
+                        <label>descending</label>
+                    </div>
+                    <p>Clients:</p>
+                    <div>
+                        <input id="defaulted" type="radio" name="sortstatus">
+                        <label>default</label>
+                    </div>
+                    <div>
+                        <input id="actived" type="radio" name="sortstatus">
+                        <label>active</label>
+                    </div>
+
+                    <div>
+                        <input id="inactived" type="radio" name="sortstatus">
+                        <label>inactive</label>
+                    </div>
+
+
+                </div>
+            </div>
+    </header>
+    <table class="myTable-1" id="theTable">
+        <thead>
+            <tr>
+                <th class="header">
+                    <input type="checkbox" name="checkboxes" class="check-1" id="check-valid" onclick="check()">
+                </th>
+                <th class="header" id="sort-name"><span class="un">Name <i class="fa fa-sort" aria-hidden="true"></i></th>
+                <th class="header"><span class="deux"> DESCRIPTION</span></th>
+                <th class="header"><span class="trois">RATE</span></th>
+                <th class="header"><span class="quatre"> BALANCE </span></th>
+                <th class="header"><span class="cinq">DEPOSIT</span></th>
+                <th class="header" id="sort-Status"><span class="six">STATUS <i class="fa fa-sort" aria-hidden="true"></i></th>
+                <th class="header"><i id ="sept"class="fa fa-ellipsis-h" aria-hidden="true"></i></th>
+            </tr>
+        </thead>
+        <tbody id="myTable" class="tbody"> 
+        <td>
+        </td>
+        <button id="Exit-btn" class="btn-Exit" type="submit">Cancel</button>
+        <button id="add-btn" class="btn-add" type="submit">Submit</button>
+        <button id="edit-btn" class="update-button" type="submit">Update</button>   
+        <button id="duplicate-btn" class="duplicate-button" type="submit">Duplicate</button>              
+    </tbody>
+    </table> 
+   <footer class="myFooter">
+    <div class="clients" id = "actived-clients"></div>   
+    <div class="footer">
+    <div class="group-select"> 
+    <div class="page"> Rows per page :  </div> 
+        <select id="rows-per-page" class="style">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="20">25</option>
+        </select>
+    </div>
+        <div class="of" id = "select-rows"> 1-5 of </div>
+        <div class = "left"> <i class="fa fa-angle-left" aria-hidden="true" id="previous-clients"></i></div>
+        <div class="right"> <i class="fa fa-angle-right" aria-hidden="true" id="next-clients"></i></div>
+    </div>
+   </footer>
+</body>
+<script src="data.js"></script>
+</html>
